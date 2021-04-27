@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   double equationFontSize = 38;
 
-  double res`ultFontSize = 48;
+  double resultFontSize = 48;
   buttonPressed(String buttonText) {
     setState(() {
       if (buttonText == "C") {
@@ -42,8 +42,6 @@ class _HomePageState extends State<HomePage> {
           Expression exp = p.parse(expression);
           ContextModel cm = ContextModel();
           result = "${exp.evaluate(EvaluationType.REAL, cm)}";
-
-          equation = result;
         } catch (e) {
           result = "Error";
         }
@@ -60,7 +58,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white, elevation: 0),
+      appBar: AppBar(
+          title: Text(
+            "Calculator",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
